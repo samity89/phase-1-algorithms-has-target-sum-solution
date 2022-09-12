@@ -1,5 +1,11 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] === complement) return true;
+    }
+  }
+  return false;
 }
 
 /* 
@@ -7,7 +13,14 @@ function hasTargetSum(array, target) {
 */
 
 /* 
-  Add your pseudocode here
+  hasTargetSum ([22, 19, 4, 6, 30], 25)
+  iterate through each number in the array
+    for the current number, identify a completement that adds to the target (complement = target - number)
+    iterate through the rest of the array
+      check if any number of the complement
+      if so, return true
+
+    if I reach end of the array without complement found, return false
 */
 
 /*
